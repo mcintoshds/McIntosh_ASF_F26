@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1">
+    <title> DoggyHorse</title><!--Tab Title-->
+    <head>
+    <body>
+
+        <h1>My First Form</h1>
+        <h3>h3</h3> <!--for the headers/text -->
+
+
+        <form action="/login" method="get"> <!--Landing page for submit(check URL)-->
+            <label>
+                    First Name: <input
+                        type="text"
+                        name="first_name"
+                        id="doggy"
+                        required
+                        minlength="5">
+            </label>
+                <br>
+            <label>
+                     Last Name: <input
+                        type="text"
+                        name="last_name"
+                        id="horse"
+                        required
+                        maxlength="36">
+            </label>
+                <br>
+            <label>
+                     Age: <input
+                        type="number"
+                        name="age"
+                        id="birdy"
+                        required
+                        min="21"
+                        max="99">
+            </label>
+                <br>
+            <button type="submit">SUBMIT</button> <!--Button-->
+        </form>
+    </body>
+  </html>
