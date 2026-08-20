@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/Class_repo-main/CAPSTONE Neon Black Market Security/2026-08-20_20_queries.sql" value="fed907c5-146c-426e-a358-36b53c37be59" />
+    <file url="file://$PROJECT_DIR$/Class_repo-main/CAPSTONE Neon Black Market Security/2026-08-20_created_multiple_lookup_tables.sql" value="fed907c5-146c-426e-a358-36b53c37be59" />
+    <file url="file://$PROJECT_DIR$/Class_repo-main/CAPSTONE Neon Black Market Security/2026-08-20_created_security_logs_raw_table.sql" value="fed907c5-146c-426e-a358-36b53c37be59" />
+    <file url="file://$PROJECT_DIR$/Class_repo-main/CAPSTONE Neon Black Market Security/2026-08-20_seed_data_multiple_lookup_tables.sql" value="fed907c5-146c-426e-a358-36b53c37be59" />
+    <file url="file://$PROJECT_DIR$/Class_repo-main/CAPSTONE Neon Black Market Security/2026-08-20_seed_data_security_logs_raw_table.sql" value="fed907c5-146c-426e-a358-36b53c37be59" />
+  </component>
+</project>

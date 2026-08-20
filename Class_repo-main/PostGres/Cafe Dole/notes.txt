@@ -1,0 +1,47 @@
+======================
+///User Table///
+user_id - PK - serial, not null
+user_first_name - varchar 30, not null
+user_last_name - varchar 30, not null
+user_phone - char 10, not null
+user_email - varchar 40, not null
+user reservations - one to many
+======================
+///Reservations Table///
+xx Id PK - serial, not null
+xx party_size - int limit; between 1 and 8 not null
+xx date_of_reservation - date required not null, check timeframe, formatting
+xx time_of_reservation - TS; formatting
+xx is_confirmed - boolean - default false
+xx seating_preference - int relate to a preferences table - FK
+xx special_notes - (dietary, occasion, etc..) - TEXT, not required
+xx news_letter - bool, default true
+xx restaurant_id - int fk required
+xx User_ID_PK
+xx reservation_cancellation - boolean - default false(user controlled)
+many to one
+======================
+///Seating Preferences///
+preference_id - PK - seat preference / res table
+seating_location - varchar 15, indoor, outdoor, first
+one to one
+======================
+///Restaurant Locations
+restaurant_location_id - PK relates to reservations restaurant_id
+restaurant_name - varchar 10, req.
+restaurant_address - varchar 10, req.
+restaurant_city - varchar 10, req
+one to one reservations
+=====================
+///Dietary Restrictions///
+PK - serial, not null
+restriction id
+//veg, vegan, GF, lactose, egg, peanut - varchar 30
+fk reservation notes(dietary notes )
+======================
+///Reservation Notes///
+ID PK - serial, not null
+FK user - ID PK
+FK reservation - ID PK
+dietary notes - varchar 100
+======================
