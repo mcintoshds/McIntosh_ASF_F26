@@ -1,6 +1,5 @@
 -- Query 1
 -- Investigation: Find every event that has a failed status.
--- Security importance: Failed events can show login problems or attempted attacks.
 SELECT security_logs_raw.*
 FROM security_logs_raw
          JOIN status
@@ -10,7 +9,6 @@ ORDER BY security_logs_raw.event_time DESC;
 
 -- Query 2
 -- Investigation: Find every event with high or critical severity.
--- Security importance: These events may need attention before low-risk events.
 SELECT security_logs_raw.*
 FROM security_logs_raw
          JOIN severity
@@ -21,7 +19,6 @@ ORDER BY security_logs_raw.event_time DESC;
 
 -- Query 3
 -- Investigation: Find events connected to locked accounts.
--- Security importance: Activity from a locked account may show a control failure.
 SELECT security_logs_raw.*
 FROM security_logs_raw
          JOIN account_status
@@ -31,7 +28,6 @@ ORDER BY security_logs_raw.event_time DESC;
 
 -- Query 4
 -- Investigation: Find every event already marked for the watchlist.
--- Security importance: Watchlisted activity has already met a suspicious condition.
 SELECT *
 FROM security_logs_raw
 WHERE watchlist_flag = TRUE
@@ -39,7 +35,6 @@ ORDER BY event_time DESC;
 
 -- Query 5
 -- Investigation: List login events from newest to oldest.
--- Security importance: A timeline helps investigators see the order of login attempts.
 SELECT security_logs_raw.*
 FROM security_logs_raw
          JOIN event_type
@@ -49,7 +44,6 @@ ORDER BY security_logs_raw.event_time DESC;
 
 -- Query 6
 -- Investigation: Find the ten records with the highest risk scores.
--- Security importance: The highest-risk events should normally be reviewed first.
 SELECT *
 FROM security_logs_raw
 ORDER BY risk_score DESC
@@ -57,7 +51,6 @@ ORDER BY risk_score DESC
 
 -- Query 7
 -- Investigation: Count how many records belong to each event type.
--- Security importance: Unusually common event types may reveal misuse or system problems.
 SELECT event_type.event_type,
        COUNT(*) AS total_events
 FROM security_logs_raw
@@ -66,13 +59,8 @@ FROM security_logs_raw
 GROUP BY event_type.event_type
 ORDER BY total_events DESC;
 
--- ============================================================
--- MEDIUM QUERIES
--- ============================================================
-
 -- Query 8
 -- Investigation: Count failed events for each username.
--- Security importance: Users with repeated failures may be under attack or misusing access.
 SELECT security_logs_raw.username,
        COUNT(*) AS failed_events
 FROM security_logs_raw
@@ -84,7 +72,6 @@ ORDER BY failed_events DESC;
 
 -- Query 9
 -- Investigation: Count how many records came from each IP address.
--- Security importance: A very active IP address may be automated or shared by attackers.
 SELECT ip_address,
        COUNT(*) AS total_events
 FROM security_logs_raw
@@ -93,7 +80,6 @@ ORDER BY total_events DESC;
 
 -- Query 10
 -- Investigation: Count high or critical events for each username.
--- Security importance: Repeated serious events tied to one user deserve closer review.
 SELECT security_logs_raw.username,
        COUNT(*) AS serious_events
 FROM security_logs_raw
@@ -106,7 +92,6 @@ ORDER BY serious_events DESC;
 
 -- Query 11
 -- Investigation: Count failed events for each device type.
--- Security importance: This can reveal whether failures are concentrated on one device type.
 SELECT device_type.device_type,
        COUNT(*) AS failed_events
 FROM security_logs_raw
@@ -120,7 +105,6 @@ ORDER BY failed_events DESC;
 
 -- Query 12
 -- Investigation: Count watchlisted events for each country.
--- Security importance: Location patterns can help identify suspicious access sources.
 SELECT location_country,
        COUNT(*) AS suspicious_events
 FROM security_logs_raw
@@ -130,7 +114,6 @@ ORDER BY suspicious_events DESC;
 
 -- Query 13
 -- Investigation: Find the most common reasons that events failed or were blocked.
--- Security importance: Common failure reasons show which security controls are triggered most.
 SELECT failure_reason.failure_reason,
        COUNT(*) AS reason_count
 FROM security_logs_raw
@@ -141,7 +124,6 @@ ORDER BY reason_count DESC;
 
 -- Query 14
 -- Investigation: Count how many records belong to each resource type.
--- Security importance: This shows which parts of the system receive the most activity.
 SELECT resource_type.resource_type,
        COUNT(*) AS total_events
 FROM security_logs_raw
@@ -152,25 +134,20 @@ ORDER BY total_events DESC;
 
 -- Query 15
 -- Investigation: Count each user-role and event-category combination.
--- Security importance: Unexpected role activity may show access outside normal duties.
 SELECT user_role.user_role,
-       event_category.event_category,
+       event_category.event_category_id,
        COUNT(*) AS total_events
 FROM security_logs_raw
          JOIN user_role
               ON security_logs_raw.user_role_id = user_role.user_role_id
          JOIN event_category
               ON security_logs_raw.event_category_id = event_category.event_category_id
-GROUP BY user_role.user_role, event_category.event_category
-ORDER BY user_role.user_role, total_events DESC;
-
--- ============================================================
--- HARDER QUERIES
--- ============================================================
+GROUP BY user_role.user_role, event_category.event_category_id
+ORDER BY user_role, total_events DESC;
 
 -- Query 16
 -- Investigation: Find IP addresses used by more than one username.
--- Security importance: Shared IP addresses can connect accounts to the same source.
+
 SELECT ip_address,
        COUNT(DISTINCT username) AS different_usernames
 FROM security_logs_raw
@@ -179,8 +156,7 @@ HAVING COUNT(DISTINCT username) > 1
 ORDER BY different_usernames DESC;
 
 -- Query 17
--- Investigation: Find usernames tied to both a failed event and a high risk score.
--- Security importance: Multiple warning signs together are stronger than either sign alone.
+-- Investigation: Find usernames tied to both a failed event and a high risk score
 SELECT DISTINCT security_logs_raw.username
 FROM security_logs_raw
          JOIN status
@@ -190,8 +166,7 @@ WHERE status.status = 'failed'
 ORDER BY security_logs_raw.username;
 
 -- Query 18
--- Investigation: Find sessions that contain more than one failed event.
--- Security importance: Repeated failures in one session may show brute-force activity.
+-- Investigation: Find sessions that contain more than one failed event
 SELECT security_logs_raw.session_id,
        COUNT(*) AS failed_events
 FROM security_logs_raw
@@ -204,7 +179,6 @@ ORDER BY failed_events DESC;
 
 -- Query 19
 -- Investigation: Find successful activity from locked or suspended accounts.
--- Security importance: A disabled security control could allow restricted users back in.
 SELECT security_logs_raw.username,
        account_status.account_status,
        security_logs_raw.event_time,
@@ -222,7 +196,6 @@ ORDER BY security_logs_raw.event_time DESC;
 
 -- Query 20
 -- Investigation: Find users, IP addresses, and sessions with several risk indicators together.
--- Security importance: Failed, severe, watchlisted, high-risk activity is a strong attack signal.
 SELECT security_logs_raw.username,
        security_logs_raw.ip_address,
        security_logs_raw.session_id,
