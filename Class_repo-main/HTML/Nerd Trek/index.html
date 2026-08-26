@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<form action="/api/getData" method="get">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galactic Summit Registration</title>
+</head>
+<body>
+
+<hr>
+<label>Representative name: </label>
+<input type="text" name="representative_name" id="" placeholder="Name" maxlength="20" required>
+
+<br>
+
+<label>Galactic Communications Type: </label>
+<input type="text" name="galactic_communications" id="" placeholder="Communications Type" maxlength="100" required>
+
+<br>
+
+<label>Crew Size: </label>
+<input type="number" name="crewSizeAttending" id="" placeholder="Crew Size" min="1" max="8" style="width: 75px" required>
+
+<br>
+
+<label>Alliance: </label>
+<input type="radio" name="alliance" id="" value="starwars" required> Star Wars
+<input type="radio" name="alliance" id="" value="startrek"> Star Trek
+<input type="radio" name="alliance" id="" value="snacks"> Snacks
+
+<br>
+
+<label>Summit Updates:
+<input type="checkbox" id="updates" name="updates">
+    <input type="email" name="email" id="" placeholder="OGgreengoblin@sky.net" required style="width: 200px">
+</label>
+
+<hr>
+
+<button type="submit">SUBMIT</button>
+<button type="reset">RESET</button>
+
+</body>
+</form>
+</html>
