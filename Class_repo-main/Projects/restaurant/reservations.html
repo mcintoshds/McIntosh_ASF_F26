@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request a table at The Underdog Speakeasy.">
+    <title>The Underdog Speakeasy | Reservations</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="brand" href="index.html" aria-label="The Underdog Speakeasy home page">
+                <img class="brand-logo" src="images/logo.png" alt="The Underdog Speakeasy logo">
+                <span class="brand-copy">
+                    <span class="brand-name">The Underdog</span>
+                    <span class="brand-subtitle">Speakeasy</span>
+                </span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a class="active" href="reservations.html" aria-current="page">Reservations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="page-intro reservation-intro">
+            <div class="container intro-grid">
+                <div>
+                    <p class="overline"><i class="fa-solid fa-key" aria-hidden="true"></i> Entry by confirmation</p>
+                    <h1>Request a Table</h1>
+                    <p>Reservations are request only because the entrance stays unmarked and the cellar room occasionally moves. A host will confirm your time, location, and entry phrase.</p>
+                </div>
+
+                <p class="stamp"><i class="fa-solid fa-user-secret" aria-hidden="true"></i> Tell only your party</p>
+            </div>
+        </section>
+
+        <section class="section container reservation-layout">
+            <div class="card form-card">
+                <div class="form-heading">
+                    <p class="overline">Guest ledger</p>
+                    <h2>Reservation Request</h2>
+                </div>
+
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="guest-name">Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="guest-name" name="guest-name" maxlength="20" autocomplete="name" required>
+                        <small>Maximum 20 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guest-email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="guest-email" name="guest-email" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="party-size">Party size <span aria-hidden="true">*</span></label>
+                            <select id="party-size" name="party-size" required>
+                                <option value="" selected disabled>Select</option>
+                                <option value="1">1 guest</option>
+                                <option value="2">2 guests</option>
+                                <option value="3">3 guests</option>
+                                <option value="4">4 guests</option>
+                                <option value="5">5 guests</option>
+                                <option value="6">6 guests</option>
+                                <option value="7">7 guests</option>
+                                <option value="8">8 guests</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reservation-date">Date <span aria-hidden="true">*</span></label>
+                            <input type="date" id="reservation-date" name="reservation-date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reservation-time">Time <span aria-hidden="true">*</span></label>
+                        <input type="time" id="reservation-time" name="reservation-time" required>
+                    </div>
+
+                    <fieldset>
+                        <legend>Seating preference <span aria-hidden="true">*</span></legend>
+
+                        <div class="choice">
+                            <input type="radio" id="cellar-booth" name="seating" value="cellar-booth" required>
+                            <label for="cellar-booth">Main cellar booth</label>
+                        </div>
+
+                        <div class="choice">
+                            <input type="radio" id="boiler-table" name="seating" value="boiler-table">
+                            <label for="boiler-table">Boiler-room table</label>
+                        </div>
+
+                        <div class="choice">
+                            <input type="radio" id="lamp-counter" name="seating" value="lamp-counter">
+                            <label for="lamp-counter">Green-lamp counter</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="dietary-notes">Dietary notes <span class="optional">(optional)</span></label>
+                        <textarea id="dietary-notes" name="dietary-notes" rows="3" maxlength="30"></textarea>
+                        <small>Maximum 30 characters</small>
+                    </div>
+
+                    <div class="choice newsletter-choice">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                        <label for="newsletter">Send me cellar openings and seasonal menu updates.</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="button" type="submit">Submit Request</button>
+                        <button class="button button-outline dark-outline" type="reset">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="house-card" aria-labelledby="house-rules-heading">
+                <p class="overline">House notice</p>
+                <h2 id="house-rules-heading">Before You Knock</h2>
+                <ul class="house-list">
+                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Arrive with your confirmed party.</li>
+                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Use the entrance phrase once.</li>
+                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Follow the green lamp downstairs.</li>
+                </ul>
+
+                <div class="hours">
+                    <h3>Service Hours</h3>
+                    <p>Tuesday–Sunday</p>
+                    <p>5:00 p.m.–11:00 p.m.</p>
+                    <p>Closed Monday while the entrance moves.</p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p><i class="fa-solid fa-paw" aria-hidden="true"></i> The Underdog Speakeasy</p>
+            <p>Unmarked doors beneath Gearford</p>
+        </div>
+    </footer>
+</body>
+</html>
