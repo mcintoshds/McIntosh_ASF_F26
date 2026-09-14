@@ -10,117 +10,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header class="site-header">
-        <nav class="navbar container" aria-label="Main navigation">
-            <a class="brand" href="index.html" aria-label="The Underdog Speakeasy home page">
-                <img class="brand-logo" src="images/logo.png" alt="The Underdog Speakeasy logo">
-                <span class="brand-copy">
-                    <span class="brand-name">The Underdog</span>
-                    <span class="brand-subtitle">Speakeasy</span>
-                </span>
-            </a>
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation"><div class="container">
+        <a class="navbar-brand brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="The Underdog Speakeasy logo"><span class="brand-copy"><span class="brand-name">The Underdog</span><span class="brand-subtitle">Speakeasy</span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="main-nav"><ul class="navbar-nav ms-auto gap-lg-2"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link active" href="menu.html" aria-current="page">Menu</a></li><li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li></ul></div></div></nav>
+</header>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="menu.html" aria-current="page">Menu</a></li>
-                <li><a href="reservations.html">Reservations</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main id="main-content">
-        <section class="page-intro">
-            <div class="container intro-grid">
-                <div>
-                    <p class="overline"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Cellar Crew Seven</p>
-                    <h1>Tonight's Back-Room Menu</h1>
-                    <p>Speakeasy supper plates and alcohol-free house tonics made from ingredients shared between independent neighborhood kitchens. Every pairing is prepared to order and served below street level.</p>
-                </div>
-
-                <p class="stamp"><i class="fa-solid fa-moon" aria-hidden="true"></i> Menu changes nightly</p>
-            </div>
-        </section>
-
-        <section class="section container menu-feature" aria-labelledby="menu-heading">
-            <div class="menu-photo">
-                <img src="images/img3.jpg" alt="Three corgis preparing house tonics and small plates inside a concealed cellar speakeasy while a bulldog patrol passes outside">
-                <p class="photo-label">Prepared behind the pantry wall</p>
+<main id="main-content">
+    <section class="page-intro">
+        <div class="container"><div class="row intro-grid align-items-center g-4">
+            <div class="col-lg-9">
+                <p class="overline"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Cellar Crew Seven</p>
+                <h1>The Back-Room Menu</h1>
+                <p>Speakeasy supper plates and alcohol-free house tonics made from ingredients shared between independent neighborhood kitchens. Every pairing is prepared to order and served below street level.</p>
             </div>
 
-            <div class="menu-copy">
+            <p class="stamp col-lg-3"><i class="fa-solid fa-moon" aria-hidden="true"></i> Menu changes nightly</p>
+        </div></div>
+    </section>
+
+    <section class="section container" aria-labelledby="menu-heading">
+        <div class="row g-4 align-items-center"><div class="menu-photo col-lg-7">
+            <img src="images/img3.jpg" alt="Three corgis preparing house tonics and small plates inside a concealed cellar speakeasy while a bulldog patrol passes outside">
+            <p class="photo-label">Prepared behind the pantry wall</p>
+        </div>
+
+            <div class="menu-copy col-lg-5">
                 <p class="overline">No ration cards required</p>
                 <h2 id="menu-heading">Supper Worth Finding</h2>
                 <p>Each combination matches a shared plate with a house tonic. Ask your host about tonight's off-menu test pour.</p>
-            </div>
-        </section>
+            </div></div>
+    </section>
 
-        <section class="section container table-section" aria-label="Speakeasy menu prices">
-            <div class="table-wrapper">
-                <table>
-                    <caption>Tonight's Speakeasy Pairings</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Combo</th>
-                            <th scope="col">Includes</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Green Lantern Board</th>
-                            <td>Chicken skewers, pretzel bites, pickles, smoked tea tonic</td>
-                            <td>$18</td>
-                            <td>House favorite</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Midnight Courier</th>
-                            <td>Brisket sliders, copper fries, onion jam, cherry cola and firewater</td>
-                            <td>$17</td>
-                            <td>Popular</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Boiler-Room Mushrooms</th>
-                            <td>Roasted mushrooms, rye toast, herb cream, ginger-lime tonic w/ birds eye chili garnish</td>
-                            <td>$14</td>
-                            <td>Cat food</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Signal Lantern Trout</th>
-                            <td>Crispy trout, crushed potatoes, dill salad, citrus tonic</td>
-                            <td>$19</td>
-                            <td>Chef's treat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Short-Leg Special</th>
-                            <td>Braised pork, buttered noodles, cabbage, spiced apple tonic</td>
-                            <td>$17</td>
-                            <td>Comfort food</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tunnel Garden Plate</th>
-                            <td>Lentil croquettes, roasted roots, herb sauce, cucumber tonic</td>
-                            <td>$15</td>
-                            <td>Cat food</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <section class="section container table-section" aria-label="Speakeasy menu prices">
+        <div class="row mb-4"><div class="col-md-5">
+            <label class="form-label" for="category-filter">Choose a menu</label>
+            <select class="form-select" id="category-filter"><option value="All">All meals</option><option>Breakfast</option><option>Lunch</option><option>Dinner</option></select>
+        </div></div>
+        <p id="menu-count" role="status"></p>
+        <div id="menu-items" class="row g-4"></div>
+        <p class="menu-note">Prices are in US dollars. Pairings may change with the day's delivery.</p>
+    </section>
+</main>
 
-            <p class="menu-note" style="margin-left: 5px"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Prices are listed in Gearford crowns. Pairings may change with the night's delivery.</p>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p><i class="fa-solid fa-paw" aria-hidden="true"></i> The Underdog Speakeasy</p>
-            <p>Unmarked doors beneath Gearford</p>
-        </div>
-    </footer>
+<footer class="site-footer">
+    <div class="container footer-content">
+        <p><i class="fa-solid fa-paw" aria-hidden="true"></i> The Underdog Speakeasy</p>
+        <p>Unmarked doors beneath Gearford</p>
+    </div>
+</footer>
 </body>
 </html>
