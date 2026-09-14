@@ -1,5 +1,5 @@
-/* Bootstrap handles the grid, navigation collapse, and form controls.
-   Custom CSS preserves the original green, copper, and cellar theme. */
+/* Bootstrap handles the grid, navigation, forms, and table layout. */
+
 :root {
     --navy: #09171c;
     --green: #235844;
@@ -7,75 +7,463 @@
     --amber: #efc47f;
     --cream: #f3ead8;
 }
-body { background: #051e1a; color: seashell; font-family: "Montserrat", Arial, sans-serif; line-height: 1.65; }
-img { display: block; max-width: 100%; }
-h1, h2, h3, .brand-name { font-family: "Cormorant Garamond", Georgia, serif; }
-h1 { font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1; }
-h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
-h3 { font-size: 1.7rem; }
-a { color: var(--amber); }
-a:hover { color: white; }
-.skip-link { position: absolute; top: -100px; left: 1rem; z-index: 1100; background: var(--cream); color: var(--navy); padding: .75rem; }
-.skip-link:focus { top: 1rem; }
-.site-header { background: var(--navy); border-bottom: 1px solid #806549; }
-.navbar { min-height: 86px; }
-.brand { display: flex; align-items: center; gap: .75rem; }
-.brand-logo { width: 54px; height: 54px; object-fit: contain; }
-.brand-copy { display: flex; flex-direction: column; line-height: 1.1; }
-.brand-name { font-size: 1.5rem; }
-.brand-subtitle { color: var(--amber); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
-.navbar .nav-link { color: var(--cream); padding: .6rem .9rem; }
-.navbar .nav-link.active { color: var(--navy); background: var(--copper); border-radius: 4px; }
-.navbar .nav-link:hover { color: var(--amber); }
-.navbar .nav-link.active:hover { color: var(--navy); background: var(--amber); }
-.section { padding-block: 4rem; }
-.hero, .page-intro { background: radial-gradient(circle at 15% 35%, #235844, transparent 65%), var(--navy); }
-.hero-content { padding-block: 4rem; }
-.hero-tagline { font-size: 1.1rem; }
-.hero-actions, .form-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 1.5rem; }
-.overline { color: var(--amber); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-.overline i, .door-note i, .notice-content i, .card-icon { color: var(--amber); margin-right: .4rem; }
-.door-note, .menu-note { font-size: .88rem; }
-.hero-visual, .menu-photo, .feature-image { position: relative; }
-.hero-visual img, .menu-photo img, .feature-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--copper); border-radius: 8px; }
-.photo-label { margin: .75rem 0 0; font-size: .75rem; color: var(--amber); text-transform: uppercase; letter-spacing: .08em; }
-.notice-bar { background: var(--green); padding-block: 1rem; }
-.notice-content p { margin-bottom: 0; font-size: .85rem; }
-.section-heading { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
-.card { padding: 1.75rem; color: seashell; border: 1px solid #806549; background: linear-gradient(145deg, #045444, var(--navy)); border-radius: 8px; }
-.card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-.button { display: inline-block; border: 2px solid var(--copper); border-radius: 4px; padding: .75rem 1.2rem; background: var(--copper); color: var(--navy); text-decoration: none; font-weight: 700; }
-.button:hover { color: var(--navy); background: var(--amber); border-color: var(--amber); }
-.button-outline { background: transparent; color: var(--cream); }
-.button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
-.text-link { font-weight: 700; }
-.price-line span, .menu-price { color: var(--amber); font-size: 1.5rem; font-weight: 700; }
-.intro-grid { padding-block: 3.5rem; }
-.stamp { border-left: 2px solid var(--copper); font-size: .8rem; color: var(--amber); text-transform: uppercase; }
-.menu-category { color: var(--amber); font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; }
-.menu-note { margin-top: 1.5rem; }
-.form-card { background: var(--cream); color: var(--navy); }
-.form-card .overline { color: var(--green); }
-.form-heading { margin-bottom: 1.5rem; border-bottom: 1px solid #a6995d; }
-.form-group { margin-bottom: 1.25rem; }
-.form-group label { display: block; margin-bottom: .35rem; font-weight: 600; }
-.form-card small, .optional { color: #48534e; }
-.form-card .button-outline { color: var(--green); border-color: var(--green); }
-.form-control, .form-select { border-color: #887961; }
-.form-control:focus, .form-select:focus { border-color: var(--green); box-shadow: 0 0 0 .2rem #23584440; }
-fieldset { padding: 1rem; margin-bottom: 1.25rem; border: 1px solid #887961; border-radius: 4px; }
-legend { float: none; width: auto; padding-inline: .25rem; font-size: 1rem; font-weight: 600; }
-.choice { display: flex; align-items: baseline; gap: .6rem; margin-top: .6rem; }
-.choice input { accent-color: var(--green); }
-.house-card { background: var(--green); border: 1px solid var(--copper); padding: 2rem; border-radius: 8px; }
-.house-list { list-style: none; padding: 0; }
-.house-list li { margin-block: .75rem; }
-.hours { border-top: 1px solid #96b8a4; padding-top: 1rem; }
-.hours p { margin-bottom: .4rem; }
-.site-footer { background: var(--navy); margin-top: 2rem; padding-block: 1.5rem; font-size: .85rem; }
-.site-footer p { margin-bottom: .4rem; }
+
+body {
+    background: #051e1a;
+    color: seashell;
+    font-family: "Montserrat", Arial, sans-serif;
+    line-height: 1.65;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+.brand-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+a {
+    color: var(--amber);
+}
+
+a:hover {
+    color: white;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 1100;
+    background: var(--cream);
+    color: var(--navy);
+    padding: 0.75rem;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+.site-header {
+    background: var(--navy);
+    border-bottom: 1px solid #806549;
+}
+
+.navbar {
+    min-height: 86px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-logo {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+}
+
+.brand-subtitle {
+    color: var(--amber);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.navbar .nav-link {
+    color: var(--cream);
+    padding: 0.6rem 0.9rem;
+}
+
+.navbar .nav-link.active {
+    color: var(--navy);
+    background: var(--copper);
+    border-radius: 4px;
+}
+
+.navbar .nav-link:hover {
+    color: var(--amber);
+}
+
+.navbar .nav-link.active:hover {
+    color: var(--navy);
+    background: var(--amber);
+}
+
+.section {
+    padding-block: 4rem;
+}
+
+.hero,
+.page-intro {
+    background:
+            radial-gradient(circle at 15% 35%, #235844, transparent 65%),
+            var(--navy);
+}
+
+.hero-content {
+    padding-block: 4rem;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+}
+
+.hero-actions,
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block: 1.5rem;
+}
+
+.overline {
+    color: var(--amber);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.overline i,
+.door-note i,
+.notice-content i,
+.card-icon {
+    color: var(--amber);
+    margin-right: 0.4rem;
+}
+
+.door-note,
+.menu-note {
+    font-size: 0.88rem;
+}
+
+.hero-visual,
+.menu-photo,
+.feature-image {
+    position: relative;
+}
+
+.hero-visual img,
+.menu-photo img,
+.feature-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--copper);
+    border-radius: 8px;
+}
+
+.photo-label {
+    margin: 0.75rem 0 0;
+    font-size: 0.75rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.notice-bar {
+    background: var(--green);
+    padding-block: 1rem;
+}
+
+.notice-content p {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.card {
+    padding: 1.75rem;
+    color: seashell;
+    border: 1px solid #806549;
+    background: linear-gradient(145deg, #045444, var(--navy));
+    border-radius: 8px;
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    display: inline-block;
+    border: 2px solid var(--copper);
+    border-radius: 4px;
+    padding: 0.75rem 1.2rem;
+    background: var(--copper);
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.button:hover {
+    color: var(--navy);
+    background: var(--amber);
+    border-color: var(--amber);
+}
+
+.button-outline {
+    background: transparent;
+    color: var(--cream);
+}
+
+.button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 4px;
+}
+
+.text-link {
+    font-weight: 700;
+}
+
+.price-line span,
+.menu-price {
+    color: var(--amber);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.intro-grid {
+    padding-block: 3.5rem;
+}
+
+.stamp {
+    border-left: 2px solid var(--copper);
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    color: var(--amber);
+    text-transform: uppercase;
+}
+
+.menu-category {
+    color: var(--amber);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.menu-note {
+    margin-top: 1.5rem;
+}
+
+#menu-count {
+    color: var(--amber);
+    font-size: 0.9rem;
+}
+
+.table-wrapper {
+    border: 1px solid #806549;
+    border-radius: 8px;
+    background: var(--navy);
+}
+
+.menu-table {
+    --bs-table-color: var(--cream);
+    --bs-table-bg: var(--navy);
+    --bs-table-border-color: #806549;
+    --bs-table-striped-color: var(--cream);
+    --bs-table-striped-bg: #102d29;
+    --bs-table-hover-color: var(--cream);
+    --bs-table-hover-bg: var(--green);
+
+    width: 100%;
+    min-width: 650px;
+    margin-bottom: 0;
+}
+
+.menu-table caption {
+    caption-side: top;
+    padding: 1rem;
+    color: var(--amber);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.menu-table thead th {
+    background: var(--green);
+    color: var(--cream);
+    white-space: nowrap;
+}
+
+.menu-table th,
+.menu-table td {
+    padding: 1rem;
+}
+
+.menu-table tbody th {
+    min-width: 180px;
+    font-weight: 600;
+}
+
+.menu-table .table-price {
+    color: var(--amber);
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.form-card {
+    background: var(--cream);
+    color: var(--navy);
+}
+
+.form-card .overline {
+    color: var(--green);
+}
+
+.form-heading {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #a6995d;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.form-card small,
+.optional {
+    color: #48534e;
+}
+
+.form-card .button-outline {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.form-control,
+.form-select {
+    border-color: #887961;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 0.2rem #23584440;
+}
+
+fieldset {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #887961;
+    border-radius: 4px;
+}
+
+legend {
+    float: none;
+    width: auto;
+    padding-inline: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.choice {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+.choice input {
+    accent-color: var(--green);
+}
+
+.house-card {
+    background: var(--green);
+    border: 1px solid var(--copper);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.house-list {
+    list-style: none;
+    padding: 0;
+}
+
+.house-list li {
+    margin-block: 0.75rem;
+}
+
+.hours {
+    border-top: 1px solid #96b8a4;
+    padding-top: 1rem;
+}
+
+.hours p {
+    margin-bottom: 0.4rem;
+}
+
+.site-footer {
+    background: var(--navy);
+    margin-top: 2rem;
+    padding-block: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.4rem;
+}
+
 @media (max-width: 575.98px) {
-    .section, .hero-content { padding-block: 2.5rem; }
-    .card, .house-card { padding: 1.25rem; }
-    .brand-name { font-size: 1.3rem; }
+    .section,
+    .hero-content {
+        padding-block: 2.5rem;
+    }
+
+    .card,
+    .house-card {
+        padding: 1.25rem;
+    }
+
+    .brand-name {
+        font-size: 1.3rem;
+    }
+
+    .menu-table th,
+    .menu-table td {
+        padding: 0.75rem;
+    }
 }
