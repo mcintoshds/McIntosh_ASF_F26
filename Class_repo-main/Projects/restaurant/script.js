@@ -9,7 +9,7 @@ const MENU_ITEMS = [
     {
         id: 2,
         name: "Midnight Courier",
-        description: "Brisket sliders, copper fries, onion jam, and cherry cola.",
+        description: "Brisket sliders, copper fries, onion jam, and cherry coke.",
         price: 17,
         category: "Dinner"
     },
@@ -229,7 +229,6 @@ function showReservationFeedback(errors, reservation) {
             "Thank you, " + reservation.name + "! Your request for " +
             reservation.partySize + " guest(s) on " + reservation.date +
             " at " + reservation.time +
-            " passed validation. This is a lab confirmation; no booking was sent.";
 
         alert.append(message);
     }
