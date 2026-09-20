@@ -1,129 +1,107 @@
-const MENU_ITEMS = [
-    {
-        id: 1,
-        name: "Green Lantern Board",
-        description: "Chicken skewers, pretzel bites, pickles, and smoked tea tonic.",
-        price: 18,
-        category: "Lunch"
-    },
-    {
-        id: 2,
-        name: "Midnight Courier",
-        description: "Brisket sliders, copper fries, onion jam, and cherry coke.",
-        price: 17,
-        category: "Dinner"
-    },
-    {
-        id: 3,
-        name: "Boiler-Room Mushrooms",
-        description: "Roasted mushrooms, rye toast, herb cream, and ginger-lime tonic.",
-        price: 14,
-        category: "Lunch"
-    },
-    {
-        id: 4,
-        name: "Signal Lantern Trout",
-        description: "Crispy trout, crushed potatoes, dill salad, and citrus tonic.",
-        price: 19,
-        category: "Dinner"
-    },
-    {
-        id: 5,
-        name: "Short-Leg Special",
-        description: "Braised pork, buttered noodles, cabbage, and spiced apple tonic.",
-        price: 17,
-        category: "Dinner"
-    },
-    {
-        id: 6,
-        name: "Tunnel Garden Plate",
-        description: "Lentil croquettes, roasted roots, herb sauce, and cucumber tonic.",
-        price: 15,
-        category: "Lunch"
-    },
-    {
-        id: 7,
-        name: "First-Shift Griddle",
-        description: "Buttermilk pancakes, apple compote, and hot breakfast tea.",
-        price: 10.5,
-        category: "Breakfast"
-    },
-    {
-        id: 8,
-        name: "Engineer’s Eggs",
-        description: "Scrambled eggs, crisp potatoes, and sourdough toast.",
-        price: 11,
-        category: "Breakfast"
-    },
-    {
-        id: 9,
-        name: "Courier’s Oats",
-        description: "Warm oats with berries, cinnamon, and toasted seeds.",
-        price: 8.5,
-        category: "Breakfast"
-    },
-    {
-        id: 10,
-        name: "Dockside Breakfast",
-        description: "Egg and cheddar sandwich with tomato relish and tea.",
-        price: 12,
-        category: "Breakfast"
-    },
-    {
-        id: 11,
-        name: "Pantry-Wall Melt",
-        description: "Toasted cheese and mushroom sandwich with tomato soup.",
-        price: 13.5,
-        category: "Lunch"
-    },
-    {
-        id: 12,
-        name: "Last-Lamp Roast",
-        description: "Slow-roasted chicken, garlic mash, seasonal greens, and tea tonic.",
-        price: 21.5,
-        category: "Dinner"
-    }
-];
+const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+const navToggle = document.querySelector(".navbar-toggler");
+const navigation = document.getElementById("main-nav");
+if (navToggle && navigation) {
+    navToggle.addEventListener("click", () => {
+        const expanded = navToggle.getAttribute("aria-expanded") === "true";
+        navToggle.setAttribute("aria-expanded", String(!expanded));
+        navigation.classList.toggle("show", !expanded);
+    });
+}
 
-const money = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD"
-});
+// Each carousel slide is a complete set of cards for one meal.
+const mealCategories = ["Breakfast", "Lunch", "Dinner"];
+let menuItems = [];
+let currentMealIndex = 0;
+const menuCards = document.getElementById("menu-cards");
+const featuredPrice = document.getElementById("featured-price");
 
-function renderMenu(category) {
-    const menuContainer = document.getElementById("menu-items");
-
-    menuContainer.replaceChildren();
-
-    const items = MENU_ITEMS.filter(item =>
-        category === "All" || item.category === category
-    );
+function renderMeal() {
+    const category = mealCategories[currentMealIndex];
+    const items = menuItems.filter(item => item.category === category);
+    menuCards.replaceChildren();
+    document.getElementById("meal-heading").textContent = category;
 
     items.forEach(item => {
-        const row = document.createElement("tr");
-        row.id = "menu-item-" + item.id;
+        const card = document.createElement("article");
+        card.className = "card meal-card";
 
-        const name = document.createElement("th");
-        name.scope = "row";
+        const image = document.createElement("img");
+        image.className = "meal-card-image";
+        image.src = "images/" + item.img;
+        image.alt = item.imageAlt || item.name;
+        image.loading = "lazy";
+
+        const content = document.createElement("div");
+        content.className = "meal-card-content";
+
+        const name = document.createElement("h3");
         name.textContent = item.name;
 
-        const description = document.createElement("td");
+        const description = document.createElement("p");
         description.textContent = item.description;
 
-        const price = document.createElement("td");
-        price.className = "table-price";
+        const price = document.createElement("p");
+        price.className = "menu-price";
         price.textContent = money.format(item.price);
 
-        const categoryCell = document.createElement("td");
-        categoryCell.textContent = item.category;
-
-        row.append(name, description, price, categoryCell);
-        menuContainer.append(row);
+        content.append(name, description, price);
+        card.append(image, content);
+        menuCards.append(card);
     });
 
-    document.getElementById("menu-count").textContent =
-        items.length + " items available";
+    document.getElementById("menu-count").textContent = category + " · " +
+        (currentMealIndex + 1) + " of " + mealCategories.length + " · " +
+        (items.length ? items.length + " dishes" : "No dishes available");
+    document.getElementById("prev-button").disabled = false;
+    document.getElementById("next-button").disabled = false;
 }
+
+function prevImage() {
+    if (!menuItems.length || !menuCards) return;
+    currentMealIndex = (currentMealIndex - 1 + mealCategories.length) % mealCategories.length;
+    renderMeal();
+}
+
+function nextImage() {
+    if (!menuItems.length || !menuCards) return;
+    currentMealIndex = (currentMealIndex + 1) % mealCategories.length;
+    renderMeal();
+}
+
+async function loadMenu() {
+    try {
+        const response = await fetch("menu.json");
+        if (!response.ok) throw new Error("Menu request failed.");
+        menuItems = await response.json();
+        if (!Array.isArray(menuItems) || menuItems.length < 10 ||
+            !menuItems.every(item => typeof item.name === "string" &&
+                typeof item.description === "string" && Number.isFinite(item.price) &&
+                ["Breakfast", "Lunch", "Dinner"].includes(item.category) &&
+                typeof item.img === "string")) {
+            throw new Error("Invalid menu data.");
+        }
+        if (featuredPrice) featuredPrice.textContent = money.format(menuItems[0].price);
+        if (menuCards) renderMeal();
+    } catch (error) {
+        if (featuredPrice) featuredPrice.textContent = "Price unavailable. ";
+        const status = document.getElementById("menu-count");
+        if (status) {
+            status.textContent = "The menu is unavailable. Please try again later. ";
+            const link = document.createElement("a");
+            link.href = "error.html";
+            link.textContent = "Return to a familiar page";
+            status.append(link);
+        }
+        console.error(error);
+    }
+}
+
+if (menuCards) {
+    document.getElementById("prev-button").addEventListener("click", prevImage);
+    document.getElementById("next-button").addEventListener("click", nextImage);
+}
+if (menuCards || featuredPrice) loadMenu();
 
 function validateReservation(reservation) {
     const errors = [];
@@ -228,30 +206,13 @@ function showReservationFeedback(errors, reservation) {
         message.textContent =
             "Thank you, " + reservation.name + "! Your request for " +
             reservation.partySize + " guest(s) on " + reservation.date +
-            " at " + reservation.time +
+            " at " + reservation.time + ". This demo has not sent or confirmed a booking.";
 
         alert.append(message);
     }
 
     feedback.replaceChildren(alert);
     alert.focus();
-}
-
-const menuContainer = document.getElementById("menu-items");
-const categoryFilter = document.getElementById("category-filter");
-
-if (menuContainer && categoryFilter) {
-    renderMenu(categoryFilter.value);
-
-    categoryFilter.addEventListener("change", event => {
-        renderMenu(event.target.value);
-    });
-}
-
-const featuredPrice = document.getElementById("featured-price");
-
-if (featuredPrice) {
-    featuredPrice.textContent = money.format(MENU_ITEMS[0].price);
 }
 
 const reservationForm = document.getElementById("reservation-form");
@@ -277,6 +238,9 @@ if (reservationForm) {
 
         const errors = validateReservation(reservation);
         showReservationFeedback(errors, reservation);
+        if (errors.length === 0) {
+            console.log(JSON.stringify(reservation, null, 2));
+        }
     });
 
     function clearReservationFeedback() {

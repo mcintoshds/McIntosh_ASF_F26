@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
-<body>
+<body class="menu-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -41,8 +41,6 @@
             <button
                     class="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#main-nav"
                     aria-controls="main-nav"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
@@ -52,19 +50,10 @@
 
             <div class="collapse navbar-collapse" id="main-nav">
                 <ul class="navbar-nav ms-auto gap-lg-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="menu.html" aria-current="page">
-                            Menu
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="reservations.html">Reservations</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html" aria-current="page">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
                 </ul>
             </div>
         </div>
@@ -125,43 +114,18 @@
         </div>
     </section>
 
-    <section
-            class="section container table-section"
-            aria-label="Speakeasy menu prices"
-    >
-        <div class="row mb-4">
-            <div class="col-md-5">
-                <label class="form-label" for="category-filter">
-                    Choose a menu
-                </label>
-
-                <select class="form-select" id="category-filter">
-                    <option value="All">All meals</option>
-                    <option value="Breakfast">Breakfast</option>
-                    <option value="Lunch">Lunch</option>
-                    <option value="Dinner">Dinner</option>
-                </select>
+    <section class="section container" aria-label="Meal menus" aria-roledescription="carousel">
+        <div class="meal-controls">
+            <button type="button" class="button button-outline" id="prev-button" aria-controls="menu-cards" disabled>PREV</button>
+            <div class="meal-heading">
+                <p class="overline">Breakfast · Lunch · Dinner</p>
+                <h2 id="meal-heading">Breakfast</h2>
+                <p id="menu-count" role="status" aria-live="polite">Loading menu…</p>
             </div>
+            <button type="button" class="button" id="next-button" aria-controls="menu-cards" disabled>NEXT</button>
         </div>
-
-        <p id="menu-count" role="status" aria-live="polite"></p>
-
-        <div class="table-responsive table-wrapper">
-            <table class="table table-striped table-hover align-middle menu-table">
-                <caption>Tonight's Speakeasy Pairings</caption>
-
-                <thead>
-                <tr>
-                    <th scope="col">Meal</th>
-                    <th scope="col">Includes</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Category</th>
-                </tr>
-                </thead>
-
-                <tbody id="menu-items"></tbody>
-            </table>
-        </div>
+        <div id="menu-cards" class="meal-grid" role="group" aria-roledescription="slide" aria-labelledby="meal-heading"></div>
+        <noscript><p>Please enable JavaScript to browse the menu.</p></noscript>
 
         <p class="menu-note">
             Prices are in US dollars. Pairings may change with the day's delivery.

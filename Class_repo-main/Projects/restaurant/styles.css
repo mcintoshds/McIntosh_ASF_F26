@@ -1,4 +1,4 @@
-/* Bootstrap handles the grid, navigation, forms, and table layout. */
+
 
 :root {
     --navy: #09171c;
@@ -9,7 +9,11 @@
 }
 
 body {
-    background: #051e1a;
+    background-color: #051e1a;
+    background-image: linear-gradient(rgba(5, 30, 26, 0.92), rgba(5, 30, 26, 0.92)), url("images/img3.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
     color: seashell;
     font-family: "Montserrat", Arial, sans-serif;
     line-height: 1.65;
@@ -466,4 +470,41 @@ legend {
     .menu-table td {
         padding: 0.75rem;
     }
+}
+
+.navbar { font-family: "Montserrat", Arial, sans-serif; }
+.story-card { max-width: 900px; margin-inline: auto; }
+.story-card h1 { margin-bottom: 1.5rem; }
+.story-card h2 { margin-top: 1.5rem; }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 3px solid var(--copper);
+    outline-offset: 3px;
+}
+
+
+.meal-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.meal-heading { text-align: center; }
+.meal-heading .overline { letter-spacing: 0.06em; }
+.meal-heading p:last-child { margin-bottom: 0; }
+.meal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+.meal-card { padding: 0; overflow: hidden; }
+.meal-card-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.meal-card-content { display: flex; flex-direction: column; flex: 1; padding: 1.5rem; }
+.meal-card-content .menu-price { margin-top: auto; margin-bottom: 0; }
+@media (max-width: 575.98px) {
+    .meal-grid { grid-template-columns: 1fr; }
+    .meal-controls { flex-wrap: wrap; }
+    .meal-heading { order: -1; width: 100%; }
+    .meal-card { padding: 0; }
 }

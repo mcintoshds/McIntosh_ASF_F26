@@ -13,17 +13,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
-<body>
+<body class="index-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation"><div class="container">
         <a class="navbar-brand brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="The Underdog Speakeasy logo"><span class="brand-copy"><span class="brand-name">The Underdog</span><span class="brand-subtitle">Speakeasy</span></span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="main-nav"><ul class="navbar-nav ms-auto gap-lg-2"><li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li><li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li><li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li></ul></div></div></nav>
+        <button class="navbar-toggler" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="main-nav"><ul class="navbar-nav ms-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+        </ul></div></div></nav>
 </header>
 
 <main id="main-content">
@@ -66,19 +71,16 @@
 
         <div class="row g-4">
             <div class="col-md-4"><article class="card h-100">
-                <i class="fa-solid fa-martini-glass-citrus card-icon" aria-hidden="true"></i>
                 <h3>Made, Not Issued</h3>
                 <p>Every shared plate and house tonic is prepared to order instead of pulled from an official ration line.</p>
             </article></div>
 
             <div class="col-md-4"><article class="card h-100">
-                <i class="fa-solid fa-people-group card-icon" aria-hidden="true"></i>
                 <h3>A Shared Table</h3>
                 <p>Corgis, humans, and trusted travelers gather together without assigned sections.</p>
             </article></div>
 
             <div class="col-md-4"><article class="card h-100">
-                <i class="fa-solid fa-map-location-dot card-icon" aria-hidden="true"></i>
                 <h3>Never in One Place</h3>
                 <p>Our rotating cellar rooms keep each neighborhood fed and one step ahead of inspection.</p>
             </article></div>
@@ -93,9 +95,9 @@
             <div class="col-lg-5"><article class="card feature-card">
                 <p class="overline">House favorite</p>
                 <h2 id="signature-heading">The Green Lantern Board</h2>
-                <p>Charred chicken skewers, warm pretzel bites, smoked mushrooms, sharp mustard, house pickles, and two chilled tea tonics.</p>
+                <p>Chicken skewers, pretzel bites, pickles, and smoked tea tonic.</p>
                 <p class="price-line"><span id="featured-price"></span> Served until the lantern goes dark.</p>
-                <a class="text-link" href="menu.html">See the full menu <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <a class="text-link" href="menu.html">See the full menu<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </article></div></div>
     </section>
 </main>
