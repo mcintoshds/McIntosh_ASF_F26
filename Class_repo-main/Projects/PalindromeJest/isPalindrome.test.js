@@ -21,7 +21,7 @@ describe("isPalindrome", () => {
       ["object", {}],
       ["null", null],
       ["undefined", undefined],
-      ["boxed string object", new String("bob")],
+      ["boxed string object", String("bob")],
       ["function", () => "bob"],
       ["symbol", Symbol("bob")],
       ["bigint", 121n],
