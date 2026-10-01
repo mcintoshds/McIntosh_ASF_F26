@@ -1,0 +1,11 @@
+{
+  "name": "palindrome-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}
