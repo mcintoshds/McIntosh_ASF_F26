@@ -21,7 +21,7 @@ describe("isPalindrome", () => {
       ["object", {}],
       ["null", null],
       ["undefined", undefined],
-      ["boxed string object", String("bob")],
+      ["string object", String("bob")],
       ["function", () => "bob"],
       ["symbol", Symbol("bob")],
       ["bigint", 121n],
@@ -36,17 +36,17 @@ describe("isPalindrome", () => {
 
   describe("basic words", () => {
     test.each(["bob", "racecar", "abba"])(
-      "returns true for %s",
-      (input) => {
-        expect(isPalindrome(input)).toBe(true);
-      }
+        "returns true for %s",
+        (input) => {
+          expect(isPalindrome(input)).toBe(true);
+        }
     );
 
     test.each(["apple", "hello", "ab"])(
-      "returns false for %s",
-      (input) => {
-        expect(isPalindrome(input)).toBe(false);
-      }
+        "returns false for %s",
+        (input) => {
+          expect(isPalindrome(input)).toBe(false);
+        }
     );
   });
 
@@ -76,10 +76,10 @@ describe("isPalindrome", () => {
     });
 
     test.each(["", "   ", "!?.,"])(
-      "treats an empty cleaned string as a palindrome: %p",
-      (input) => {
-        expect(isPalindrome(input)).toBe(true);
-      }
+        "treats an empty cleaned string as a palindrome: %p",
+        (input) => {
+          expect(isPalindrome(input)).toBe(true);
+        }
     );
 
     test("accepts a palindrome made of digits in a string", () => {
