@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Green Lantern Board",
+    "description": "Chicken skewers, pretzel bites, pickles, and smoked tea tonic.",
+    "price": 18,
+    "category": "Lunch",
+    "img": "green-lantern-board.png",
+    "imageAlt": "Chicken skewers, pretzel bites, pickles, and smoked tea tonic."
+  },
+  {
+    "id": 2,
+    "name": "Midnight Courier",
+    "description": "Brisket sliders, copper fries, onion jam, and cherry coke.",
+    "price": 17,
+    "category": "Dinner",
+    "img": "midnight-courier.png",
+    "imageAlt": "Brisket sliders, copper fries, onion jam, and cherry coke."
+  },
+  {
+    "id": 3,
+    "name": "Boiler-Room Mushrooms",
+    "description": "Roasted mushrooms, rye toast, herb cream, and ginger-lime tonic.",
+    "price": 14,
+    "category": "Lunch",
+    "img": "boiler-room-mushrooms.png",
+    "imageAlt": "Roasted mushrooms, rye toast, herb cream, and ginger-lime tonic."
+  },
+  {
+    "id": 4,
+    "name": "Signal Lantern Trout",
+    "description": "Crispy trout, crushed potatoes, dill salad, and citrus tonic.",
+    "price": 19,
+    "category": "Dinner",
+    "img": "signal-lantern-trout.png",
+    "imageAlt": "Crispy trout, crushed potatoes, dill salad, and citrus tonic."
+  },
+  {
+    "id": 5,
+    "name": "Short-Leg Special",
+    "description": "Braised pork, buttered noodles, cabbage, and spiced apple tonic.",
+    "price": 17,
+    "category": "Dinner",
+    "img": "short-leg-special.png",
+    "imageAlt": "Braised pork, buttered noodles, cabbage, and spiced apple tonic."
+  },
+  {
+    "id": 6,
+    "name": "Tunnel Garden Plate",
+    "description": "Lentil croquettes, roasted roots, herb sauce, and cucumber tonic.",
+    "price": 15,
+    "category": "Lunch",
+    "img": "tunnel-garden-plate.png",
+    "imageAlt": "Lentil croquettes, roasted roots, herb sauce, and cucumber tonic."
+  },
+  {
+    "id": 7,
+    "name": "First-Shift Griddle",
+    "description": "Buttermilk pancakes, apple compote, and hot breakfast tea.",
+    "price": 10.5,
+    "category": "Breakfast",
+    "img": "first-shift-griddle.png",
+    "imageAlt": "Buttermilk pancakes, apple compote, and hot breakfast tea."
+  },
+  {
+    "id": 8,
+    "name": "Engineer’s Eggs",
+    "description": "Scrambled eggs, crisp potatoes, and sourdough toast.",
+    "price": 11,
+    "category": "Breakfast",
+    "img": "engineers-eggs.png",
+    "imageAlt": "Scrambled eggs, crisp potatoes, and sourdough toast."
+  },
+  {
+    "id": 9,
+    "name": "Courier’s Oats",
+    "description": "Warm oats with berries, cinnamon, and toasted seeds.",
+    "price": 8.5,
+    "category": "Breakfast",
+    "img": "couriers-oats.png",
+    "imageAlt": "Warm oats with berries, cinnamon, and toasted seeds."
+  },
+  {
+    "id": 10,
+    "name": "Dockside Breakfast",
+    "description": "Egg and cheddar sandwich with tomato relish and tea.",
+    "price": 12,
+    "category": "Breakfast",
+    "img": "dockside-breakfast.png",
+    "imageAlt": "Egg and cheddar sandwich with tomato relish and tea."
+  },
+  {
+    "id": 11,
+    "name": "Pantry-Wall Melt",
+    "description": "Toasted cheese and mushroom sandwich with tomato soup.",
+    "price": 13.5,
+    "category": "Lunch",
+    "img": "pantry-wall-melt.png",
+    "imageAlt": "Toasted cheese and mushroom sandwich with tomato soup."
+  },
+  {
+    "id": 12,
+    "name": "Last-Lamp Roast",
+    "description": "Slow-roasted chicken, garlic mash, seasonal greens, and tea tonic.",
+    "price": 21.5,
+    "category": "Dinner",
+    "img": "last-lamp-roast.png",
+    "imageAlt": "Slow-roasted chicken, garlic mash, seasonal greens, and tea tonic."
+  }
+]
