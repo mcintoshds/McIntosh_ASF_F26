@@ -56,7 +56,6 @@ public class RecipeImageController {
         BufferedImage image = readImage(file);
         Files.createDirectories(uploadFolder);
 
-        // Use our own filename and save the decoded picture as PNG.
         String filename = UUID.randomUUID() + ".png";
         Path destination = uploadFolder.resolve(filename);
 

@@ -61,7 +61,6 @@ export default function App() {
   async function handleSave(input: RecipeInput, image: File | null) {
     const saved = await api.saveRecipe(input, selectedRecipe?.id);
 
-    // Keep the ID so retrying a failed upload updates the saved recipe.
     setSelectedRecipe(saved);
 
     setRecipes((current) => {
@@ -189,7 +188,10 @@ export default function App() {
                 <Row xs={1} sm={2} lg={3} className="g-4">
                   {matches.map((recipe) => (
                       <Col key={recipe.id}>
-                        <RecipeCard recipe={recipe} onOpen={openRecipe} />
+                        <RecipeCard recipe={recipe} onOpen={openRecipe} isFavorite={false}
+                                    onToggleFavorite={function (): void {
+                                      throw new Error("Function not implemented.");
+                                    }} />
                       </Col>
                   ))}
                 </Row>
@@ -206,8 +208,9 @@ export default function App() {
                     setView('form');
                   }}
                   onSaveNotes={handleNotes}
-                  onDelete={handleDelete}
-              />
+                  onDelete={handleDelete} isFavorite={false} onToggleFavorite={function (): void {
+                throw new Error("Function not implemented.");
+              }}              />
           )}
 
           {view === 'form' && (
