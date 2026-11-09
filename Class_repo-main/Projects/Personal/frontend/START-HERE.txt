@@ -1,0 +1,12 @@
+I DON'T KNOW - Quick strat up
+
+docker compose up -d --wait
+
+run RecipeApplication.java
+
+npm run dev
+
+Shutdown:
+
+docker compose down (-v to erase database)
+

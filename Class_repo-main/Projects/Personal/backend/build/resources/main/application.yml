@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: idontknow
+  datasource:
+    url: jdbc:postgresql://localhost:5434/idontknow
+    username: recipe_user
+    password: recipe123
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  address: 127.0.0.1
+  port: 8080

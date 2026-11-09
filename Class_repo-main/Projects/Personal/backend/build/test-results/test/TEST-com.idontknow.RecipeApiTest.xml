@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.idontknow.RecipeApiTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-10-19T20:32:33.137Z" hostname="RGCASWFA2395" time="0.001">
+  <properties/>
+  <testcase name="initializationError" classname="com.idontknow.RecipeApiTest" time="0.001">
+    <failure message="java.lang.IllegalStateException: The @MockitoBean 'types' attribute must not be empty when declared on a class" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The @MockitoBean 'types' attribute must not be empty when declared on a class
+	at org.springframework.util.Assert.state(Assert.java:79)
+	at org.springframework.test.context.bean.override.mockito.MockitoBeanOverrideProcessor.createHandlers(MockitoBeanOverrideProcessor.java:63)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.lambda$processClass$1(BeanOverrideHandler.java:225)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.lambda$processElement$5(BeanOverrideHandler.java:252)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.processElement(BeanOverrideHandler.java:245)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.processClass(BeanOverrideHandler.java:224)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.findHandlers(BeanOverrideHandler.java:216)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.findHandlers(BeanOverrideHandler.java:173)
+	at org.springframework.test.context.bean.override.BeanOverrideHandler.findAllHandlers(BeanOverrideHandler.java:168)
+	at org.springframework.test.context.bean.override.BeanOverrideContextCustomizerFactory.findBeanOverrideHandlers(BeanOverrideContextCustomizerFactory.java:57)
+	at org.springframework.test.context.bean.override.BeanOverrideContextCustomizerFactory.createContextCustomizer(BeanOverrideContextCustomizerFactory.java:49)
+	at org.springframework.test.context.bean.override.BeanOverrideContextCustomizerFactory.createContextCustomizer(BeanOverrideContextCustomizerFactory.java:38)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.getContextCustomizers(AbstractTestContextBootstrapper.java:359)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:332)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:268)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:216)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildTestContext(AbstractTestContextBootstrapper.java:109)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.buildTestContext(SpringBootTestContextBootstrapper.java:111)
+	at org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:142)
+	at org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:126)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</failure>
+  </testcase>
+  <system-out><![CDATA[15:32:33.119 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.idontknow.RecipeApiTest]: RecipeApiTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

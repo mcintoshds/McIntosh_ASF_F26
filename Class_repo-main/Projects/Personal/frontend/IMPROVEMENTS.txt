@@ -1,0 +1,7 @@
+To do list:
+
+Landing page with an explanation of the purpose and "begin exploring recipes" button underneath
+
+Docker compose down -v (-v is mandatory, otherwise there is a migration conflict with the flyway v2 table)
+
+
